@@ -1,11 +1,11 @@
 ---
 applications:
-  - name: spring-boot-cloud-foundry-app
+  - name: cfApp
     random-route: true
     instances: 1
     memory: 1G
     buildpack: java_buildpack
-    path: target/cloud-foundry.jar
+    path: target/cloud-foundry-app.jar
     domain: cfapps.io
     env:
       SPRING_PROFILES_ACTIVE: cloud
