@@ -10,7 +10,8 @@ Using the following endpoints, different operations can be achieved:
  - `/users` - GET/POST the list of Users in the H2_DB table.
  - `/users/{id}` - GET/POST/DELETE User in the H2_DB table.
  - `/users/name/{name}` - GET/POST/DELETE Users in the H2_DB table.
-    eg. `{
+ 
+ Model : `{
         "name": "Vipul",
         "teamName": "Development",
         "salary": 9854555
