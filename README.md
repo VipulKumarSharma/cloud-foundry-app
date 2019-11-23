@@ -5,17 +5,21 @@
 
 This Project shows the list of Users which are stored in the In-Memory H2 Database.
 Using the following endpoints, different operations can be achieved:
+
  - `/` - This returns the `greeting` string from `application.yml`
  - `/test` - This returns the app name string from `application.properties`
- - `/users` - GET/POST the list of Users in the H2_DB table.
- - `/users/{id}` - GET/POST/DELETE User in the H2_DB table.
- - `/users/name/{name}` - GET/POST/DELETE Users in the H2_DB table.
+ - `/users` - GET/POST/DELETE the all Users in the H2_DB table.
+ - `/users/{id}` - GET/POST/DELETE User in the H2_DB table by id.
+ - `/users/name/{name}` - GET/POST/DELETE Users in the H2_DB table by name.
+ - `/users/cacheClear` - Clear User Cache
  
- Model : `{
-        "name": "Vipul",
+Model : 
+    `{
+        "id": "2",
+        "name": "Vipul Sharma",
         "teamName": "Development",
         "salary": 9854555
-        }`
+    }`
 
 ## Deployment steps for Cloud Foundry
 
