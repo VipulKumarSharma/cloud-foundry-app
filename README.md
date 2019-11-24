@@ -86,7 +86,19 @@ Run Docker image
     
 URL for locally running app in container : [http://172.17.0.2:8080](http://172.17.0.2:8080)
     
+## Push Image to Docker Hub
+
+Login to docker CLI
     
+    docker login -u tysonvks -p $DOCKERHUB_TOKEN
+    
+Add tag to your image
+    
+    docker tag <CONTAINER_ID> tysonvks/cloud-foundry-app:v1
+
+Push Docker image to Docker Hub
+
+    docker push tysonvks/cloud-foundry-app
 
 ## Docker Commands
 
