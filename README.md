@@ -85,3 +85,16 @@ Stop the running container using id :
 Instantly kill the running container using id :
 
     docker kill 980b788af773
+
+To enter a image & execute some commands we have few methods
+
+- Start the container & run command interactively
+    
+    > docker start 980b788af773
+    
+    > docker exec -it 980b788af773 bash
+    
+- Directly run docker image with command [ It is not an advised approach, which can override the default behaviour of container initialization & might cause problems ]
+
+    > docker run -it mongo bash
+    
