@@ -31,6 +31,57 @@ Model :
 
     cf push cloud-foundry-app -p cloud-foundry-app.jar
 
-<b>Note : In case you need to change the buildpacks</b>
+## Notes :- 
+
+> In case you need to change the buildpacks
 
     -b https://github.com/cloudfoundry/java-buildpack.git#v3.7
+
+> Update maven wrapper file permission, so that travis can identify maven wrapper command
+
+    git update-index --chmod=+x mvnw
+
+## Docker Commands
+
+Get image from Docker Hub :
+
+    docker pull busybox
+
+Run Docker image :
+
+    docker run busybox
+
+Run Docker image with command :
+
+    docker run busybox ls -latr
+
+List all containers with status :
+
+    docker ps --all
+
+Download (if not available) MongoDB Image, create container & execute the container.
+You can create [n] no of copies of images :
+
+    docker run <IMAGE_ID>
+    docker run mongo
+
+Launch a previously stopped container :
+
+    docker start <CONTAINER_ID>
+    docker start 980b788af773
+
+To enter a docker images and run command interactively :
+
+    docker exec -it 980b788af773 bash
+
+Show all running containers :
+
+    docker ps
+
+Stop the running container using id :
+
+    docker stop 980b788af773
+
+Instantly kill the running container using id :
+
+    docker kill 980b788af773
