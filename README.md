@@ -12,7 +12,7 @@ Using the following endpoints, different operations can be achieved:
  - `/users/{id}` - GET/POST/DELETE User in the H2_DB table by id.
  - `/users/name/{name}` - GET/POST/DELETE Users in the H2_DB table by name.
  - `/users/cacheClear` - Clear User Cache
- - `jdbc:h2:mem:testdb` - H2 JDBC URL
+ - `jdbc:h2:mem:testdb` - H2 Login JDBC URL
  
 Model : 
     `{
@@ -21,6 +21,8 @@ Model :
         "teamName": "Development",
         "salary": 9854555
     }`
+
+
 
 ## Deployment steps for Cloud Foundry
 
@@ -32,6 +34,8 @@ Model :
 
     cf push cloud-foundry-app -p cloud-foundry-app.jar
 
+
+
 ## Notes :- 
 
 > In case you need to change the buildpacks
@@ -41,6 +45,8 @@ Model :
 > Update maven wrapper file permission, so that travis can identify maven wrapper command
 
     git update-index --chmod=+x mvnw
+
+
 
 ## Github Package Registry
 
@@ -81,6 +87,7 @@ Run Docker image
 URL for locally running app in container : [http://172.17.0.2:8080](http://172.17.0.2:8080)
     
     
+
 ## Docker Commands
 
 Get image from Docker Hub :
@@ -137,4 +144,3 @@ To enter a image & execute some commands we have few methods
 - Directly run docker image with command [ It is not an advised approach, which can override the default behaviour of container initialization & might cause problems ]
 
     > docker run -it mongo bash
-    
