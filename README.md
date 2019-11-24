@@ -78,11 +78,9 @@ Run Docker image
 
     docker run cloud-foundry-app:v1 -p 8080:8080
     
-URL for locally running app in container
+URL for locally running app in container : [http://172.17.0.2:8080](http://172.17.0.2:8080)
     
-    http://172.17.0.2:8080
-
-
+    
 ## Docker Commands
 
 Get image from Docker Hub :
