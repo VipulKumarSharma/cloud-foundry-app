@@ -12,6 +12,7 @@ Using the following endpoints, different operations can be achieved:
  - `/users/{id}` - GET/POST/DELETE User in the H2_DB table by id.
  - `/users/name/{name}` - GET/POST/DELETE Users in the H2_DB table by name.
  - `/users/cacheClear` - Clear User Cache
+ - `jdbc:h2:mem:testdb` - H2 JDBC URL
  
 Model : 
     `{
@@ -40,6 +41,47 @@ Model :
 > Update maven wrapper file permission, so that travis can identify maven wrapper command
 
     git update-index --chmod=+x mvnw
+
+## Github Package Registry
+
+Add Dockerfile in project's root directory
+    
+    FROM openjdk:8-jdk-alpine
+    COPY target/cloud-foundry-app.jar cloud-foundry-app.jar
+    EXPOSE 8080
+    ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "cloud-foundry-app.jar"]
+    
+Add code & build the project
+
+    mvn clean install
+    
+Build docker image (with name mentioned in Dockerfile) & check the same
+
+    docker build . -t cloud-foundry-app:v1
+    docker images
+    
+Add Tag to docker image
+
+    docker tag cloud-foundry-app:v1 docker.pkg.github.com/vipulkumarsharma/cloud-foundry-app/cloud-foundry-app:v1
+
+Login to github docker repo (using Github Token keys)</b>
+
+    docker login docker.pkg.github.com -u VipulKumarSharma -p <GH_KEY>
+    
+Push docker image to github package registry</b>
+
+    docker push docker.pkg.github.com/vipulkumarsharma/cloud-foundry-app/cloud-foundry-app:v1
+
+<i>Note : Use account name in lowercase only (in URL & tagging)</i>
+
+Run Docker image
+
+    docker run cloud-foundry-app:v1 -p 8080:8080
+    
+URL for locally running app in container
+    
+    http://172.17.0.2:8080
+
 
 ## Docker Commands
 
